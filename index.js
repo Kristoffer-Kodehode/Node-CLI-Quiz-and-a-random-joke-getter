@@ -28,4 +28,38 @@ async function welcome() {
   `);
 }
 
-welcome();
+async function askName() {
+  const answers = await inquirer.prompt({
+    name: "player_name",
+    type: "input",
+    message: "What should I call you?",
+    default() {
+      return "Player";
+    },
+  });
+  playerName = answers.player_name;
+}
+
+async function question1() {
+  const answers = await inquirer.prompt({
+    name: "question_1",
+    type: "list",
+    message: "JavaScript was created in 10 days, then released on\n",
+    choices: ["May 23rd, 1995", "Nov 24th, 1995", "Dec 4th, 1995", "Dec 17th, 1996"],
+  });
+  return handleAnswer(answers.question_1 == "Dec 4th, 1995");
+}
+
+async function handleAnswer(isCorrect) {
+  const spinner = createSpinner("Checking answer...").start;
+  await sleep();
+
+  if (isCorrect) {
+    spinner.success({ text: `Nice work ${playerName}!` });
+  } else {
+    spinner.error({ text: `💀💀💀 DAMN YOU ${playerName}!!!⚰️` });
+  }
+}
+
+//await welcome();
+//await answers();
