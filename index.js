@@ -10,7 +10,6 @@ import { createSpinner } from "nanospinner";
 //console.log(chalk.bgRed("Functionality achieved!"));
 
 let playerName;
-let playerNameUp;
 
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
