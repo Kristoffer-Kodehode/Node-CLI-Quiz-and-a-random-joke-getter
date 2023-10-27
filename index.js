@@ -7,9 +7,10 @@ import chalkAnimation from "chalk-animation";
 import figlet from "figlet";
 import { createSpinner } from "nanospinner";
 
-console.log(chalk.bgRed("Functionality achieved!"));
+//console.log(chalk.bgRed("Functionality achieved!"));
 
 let playerName;
+let playerNameUp;
 
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
@@ -22,7 +23,7 @@ async function welcome() {
   console.log(`
     ${chalk.bgMagenta("HOW TO PLAY")}
     I am a process on your computer.
-    If you get any questions wrong I will be ${chalk.bgRedBright("KILLED...")}
+    If you get any questions wrong I will be ${chalk.bgRed("KILLED...")}
     So please get all the questions right...
     
   `);
