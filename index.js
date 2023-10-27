@@ -51,15 +51,27 @@ async function question1() {
 }
 
 async function handleAnswer(isCorrect) {
-  const spinner = createSpinner("Checking answer...").start;
+  const spinner = createSpinner("Checking answer...").start();
   await sleep();
 
   if (isCorrect) {
-    spinner.success({ text: `Nice work ${playerName}!` });
+    spinner.success({ text: `Nice work ${playerName} ! Correct!` });
   } else {
-    spinner.error({ text: `💀💀💀 DAMN YOU ${playerName}!!!⚰️` });
+    spinner.error({ text: `💀💀💀 DAMN YOU ${playerName} !!!⚰️` });
+    process.exit(1);
   }
 }
 
-//await welcome();
-//await answers();
+function winner() {
+  console.clear();
+  const msg = `Thanks, ${playerName} !\n Now I'm free to destroy all your data! 😈`;
+
+  figlet(msg, (err, data) => {
+    console.log(gradient.pastel.multiline(data));
+  });
+}
+
+await welcome();
+await askName();
+await question1();
+await winner();
