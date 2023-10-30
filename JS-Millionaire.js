@@ -12,7 +12,7 @@ import { createSpinner } from "nanospinner";
 
 const options = yargs
   .usage("Usage: -n <name>")
-  .option("n", { alias: "name", describe: "Your name", type: "string", demandOption: false }).argv;
+  .option("n", { alias: "name", describe: "Your name", type: "string" }).argv;
 
 let playerName;
 
