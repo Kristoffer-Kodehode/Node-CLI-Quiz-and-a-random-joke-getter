@@ -75,7 +75,7 @@ async function question3() {
       'document.getElementByName("p").innerHTML = "Hello World!";',
       'document.getElementById("demo").innerHTML = "Hello World!";',
       'document.getElement("p").innerHTML = "Hello World!";',
-      '#demo.innerHTML = "HHello World!";',
+      '#demo.innerHTML = "Hello World!";',
     ],
   });
   return handleAnswer(
@@ -306,7 +306,7 @@ async function question23() {
     name: "question_23",
     type: "list",
     message: "How do you declare a JavaScript variable?\n",
-    choices: ["var carName;", "v carName;", "variable carName;"],
+    choices: ["v carName;", "variable carName;", "var carName;"],
   });
   return handleAnswer(answers.question_23 == "var carName;");
 }
