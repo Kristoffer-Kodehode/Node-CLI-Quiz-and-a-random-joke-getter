@@ -70,7 +70,7 @@ async function question3() {
     name: "question_3",
     type: "list",
     message: `What is the correct JavaScript syntax to change the content of the HTML element below?
-              <p id="demo">This is a demonstration.</p>`,
+              <p id="demo">This is a demonstration.</p>\n`,
     choices: [
       'document.getElementByName("p").innerHTML = "Hello World!";',
       'document.getElementById("demo").innerHTML = "Hello World!";',
