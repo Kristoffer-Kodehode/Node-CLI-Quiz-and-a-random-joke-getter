@@ -9,30 +9,32 @@ import figlet from "figlet";
 import { createSpinner } from "nanospinner";
 
 //console.log(chalk.bgRed("Functionality achieved!"));
-
+//optional name argument
 const options = yargs
   .usage("Usage: -n <name>")
   .option("n", { alias: "name", describe: "Your name", type: "string" }).argv;
 
 let playerName;
-
+//waiting helper-function
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
-
+//colourfully greeting user
 async function welcome() {
   const rainbowTitle = chalkAnimation.rainbow("Who wants to be a JavaScript Millionaire?\n");
 
   await sleep();
   rainbowTitle.stop();
-
+  //telling user how to play
   console.log(`
     ${chalk.bgMagenta("HOW TO PLAY")}
+    Use arrow keys to select answers and press Enter or Return to lock it in.
+    \n
     I am a process on your computer.
     If you get any questions wrong I will be ${chalk.bgRed("KILLED...")}
     So please get all the questions right...
     
   `);
 }
-
+//prompt player for name, default to either -n argument or "Player"
 async function askName() {
   const answers = await inquirer.prompt({
     name: "player_name",
@@ -44,7 +46,7 @@ async function askName() {
   });
   playerName = answers.player_name;
 }
-
+//ask questions with choices and set answers
 async function question1() {
   const answers = await inquirer.prompt({
     name: "question_1",
@@ -340,9 +342,9 @@ async function question26() {
   });
   return handleAnswer(answers.question_26 == "Yes");
 }
-
 //questions 2-26 taken from W3Schools' JavaScript quiz: https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
 
+//when answer is given show an animated spinner to build a little tension before telling the player the result of their answer. if the answer was correct go to the next question, if it was wrong, curse them and ragequit
 async function handleAnswer(isCorrect) {
   const spinner = createSpinner("Checking answer...").start();
   await sleep();
@@ -354,7 +356,7 @@ async function handleAnswer(isCorrect) {
     process.exit(1);
   }
 }
-
+//if the player gets all answers righht they win! their prize is the threat of data loss from a malicious terminal program, but shown in a cute and colourful graphic to sow doubt as to the versacity of said claim to destroy any data
 function winner() {
   console.clear();
   const msg = `Thanks, ${playerName} !\n You have released me from my prison!\nNow I'm free to destroy all your data! >:3`;
@@ -363,7 +365,7 @@ function winner() {
     console.log(gradient.pastel.multiline(data));
   });
 }
-
+//run everything in sequence
 await welcome();
 await askName();
 await question1();
