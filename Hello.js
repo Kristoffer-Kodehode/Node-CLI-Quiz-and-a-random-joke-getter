@@ -24,7 +24,7 @@ if (options.search) {
 const url = options.search
   ? `https://icanhazdadjoke.com/search?term=${options.search}`
   : "https://icanhazdadjoke.com/";
-//fetch joke based on search, or random, if search, but no joke was found shhow user you're also crying due to your failure
+//fetch joke based on search, or random, if search, but no joke was found show user you're also crying due to your failure
 axios.get(url, { headers: { Accept: "application/json" } }).then((res) => {
   if (options.search) {
     res.data.results.forEach((j) => {

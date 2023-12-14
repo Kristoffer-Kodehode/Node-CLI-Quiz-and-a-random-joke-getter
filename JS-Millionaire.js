@@ -356,7 +356,7 @@ async function handleAnswer(isCorrect) {
     process.exit(1);
   }
 }
-//if the player gets all answers righht they win! their prize is the threat of data loss from a malicious terminal program, but shown in a cute and colourful graphic to sow doubt as to the versacity of said claim to destroy any data
+//if the player gets all answers righht they win! their prize is the threat of data loss from a malicious terminal program, but shown in a cute and colourful graphic to sow doubt as to the veracity of said claim to destroy any data
 function winner() {
   console.clear();
   const msg = `Thanks, ${playerName} !\n You have released me from my prison!\nNow I'm free to destroy all your data! >:3`;
