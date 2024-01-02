@@ -15,8 +15,10 @@ const options = yargs
   .option("n", { alias: "name", describe: "Your name", type: "string" }).argv;
 
 let playerName;
+
 //waiting helper-function
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+
 //colourfully greeting user
 async function welcome() {
   const rainbowTitle = chalkAnimation.rainbow("Who wants to be a JavaScript Millionaire?\n");
@@ -34,6 +36,7 @@ async function welcome() {
     
   `);
 }
+
 //prompt player for name, default to either -n argument or "Player"
 async function askName() {
   const answers = await inquirer.prompt({
@@ -46,6 +49,7 @@ async function askName() {
   });
   playerName = answers.player_name;
 }
+
 //ask questions with choices and set answers
 async function question1() {
   const answers = await inquirer.prompt({
@@ -356,7 +360,8 @@ async function handleAnswer(isCorrect) {
     process.exit(1);
   }
 }
-//if the player gets all answers righht they win! their prize is the threat of data loss from a malicious terminal program, but shown in a cute and colourful graphic to sow doubt as to the veracity of said claim to destroy any data
+
+//if the player gets all answers right they win! their prize is the threat of data loss from a malicious terminal program, but shown in a cute and colourful graphic to sow doubt as to the veracity of said claim to destroy any data
 function winner() {
   console.clear();
   const msg = `Thanks, ${playerName} !\n You have released me from my prison!\nNow I'm free to destroy all your data! >:3`;
@@ -365,6 +370,7 @@ function winner() {
     console.log(gradient.pastel.multiline(data));
   });
 }
+
 //run everything in sequence
 await welcome();
 await askName();
