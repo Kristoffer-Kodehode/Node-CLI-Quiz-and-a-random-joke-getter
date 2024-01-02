@@ -8,7 +8,6 @@ import chalkAnimation from "chalk-animation";
 import figlet from "figlet";
 import { createSpinner } from "nanospinner";
 
-//console.log(chalk.bgRed("Functionality achieved!"));
 //optional name argument
 const options = yargs
   .usage("Usage: -n <name>")
